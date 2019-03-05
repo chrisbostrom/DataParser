@@ -11,16 +11,16 @@ public class ElectionResult {
     private int combinedFips;
 
     public ElectionResult(String[] data){
-        this.demVotes = Integer.parseInt(data[0]);
-        this.gopVotes = Integer.parseInt(data[1]);
-        this.totalVotes = Integer.parseInt(data[2]);
-        this.percentDem = Double.parseDouble(data[3]);
-        this.percentGop = Double.parseDouble(data[4]);
-        this.percentDifference = Double.parseDouble(data[5]);
-        this.percentPointDifference = Integer.parseInt(data[6]);
-        this.stateAbbreviation = data[7];
-        this.countyName = data[8];
-        this.combinedFips = Integer.parseInt(data[9]);
+        this.demVotes = (int) Double.parseDouble(data[1]);
+        this.gopVotes = (int) Double.parseDouble(data[2]);
+        this.totalVotes = (int) Double.parseDouble(data[3]);
+        this.percentDem = Double.parseDouble(data[4]);
+        this.percentGop = Double.parseDouble(data[5]);
+        this.percentDifference = Double.parseDouble(data[6]);
+        this.percentPointDifference = (int) Double.parseDouble(data[7]);
+        this.stateAbbreviation = data[8];
+        this.countyName = data[9];
+        this.combinedFips = (int) Double.parseDouble(data[10]);
     }
 
     public int getDemVotes() {
@@ -112,7 +112,7 @@ public class ElectionResult {
                 ", percentDem=" + percentDem +
                 ", percentGop=" + percentGop +
                 ", percentDifference=" + percentDifference +
-                ", percentPointDifference=" + percentPointDifference +
+                ", percentPointDifference=" + percentPointDifference + "%" +
                 ", stateAbbreviation='" + stateAbbreviation + '\'' +
                 ", countyName='" + countyName + '\'' +
                 ", combinedFips=" + combinedFips +
