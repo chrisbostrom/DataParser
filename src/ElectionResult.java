@@ -1,12 +1,8 @@
-public class ElectionResult {
+public class ElectionResult implements Data{
     private int demVotes;
     private int gopVotes;
     private int totalVotes;
-    private double percentDem;
-    private double percentGop;
-    private double percentDifference;
-    private int percentPointDifference;
-    private String stateAbbreviation;
+    private String stateName;
     private String countyName;
     private int combinedFips;
 
@@ -14,11 +10,7 @@ public class ElectionResult {
         this.demVotes = (int) Double.parseDouble(data[1]);
         this.gopVotes = (int) Double.parseDouble(data[2]);
         this.totalVotes = (int) Double.parseDouble(data[3]);
-        this.percentDem = Double.parseDouble(data[4]);
-        this.percentGop = Double.parseDouble(data[5]);
-        this.percentDifference = Double.parseDouble(data[6]);
-        this.percentPointDifference = (int) Double.parseDouble(data[7]);
-        this.stateAbbreviation = data[8];
+        this.stateName = data[8];
         this.countyName = data[9];
         this.combinedFips = (int) Double.parseDouble(data[10]);
     }
@@ -47,59 +39,19 @@ public class ElectionResult {
         this.totalVotes = totalVotes;
     }
 
-    public double getPercentDem() {
-        return percentDem;
-    }
-
-    public void setPercentDem(double percentDem) {
-        this.percentDem = percentDem;
-    }
-
-    public double getPercentGop() {
-        return percentGop;
-    }
-
-    public void setPercentGop(double percentGop) {
-        this.percentGop = percentGop;
-    }
-
-    public double getPercentDifference() {
-        return percentDifference;
-    }
-
-    public void setPercentDifference(double percentDifference) {
-        this.percentDifference = percentDifference;
-    }
-
-    public int getPercentPointDifference() {
-        return percentPointDifference;
-    }
-
-    public void setPercentPointDifference(int percentPointDifference) {
-        this.percentPointDifference = percentPointDifference;
-    }
-
-    public String getStateAbbreviation() {
-        return stateAbbreviation;
-    }
-
-    public void setStateAbbreviation(String stateAbbreviation) {
-        this.stateAbbreviation = stateAbbreviation;
+    public String getStateName() {
+        return stateName;
     }
 
     public String getCountyName() {
         return countyName;
     }
 
-    public void setCountyName(String countyName) {
-        this.countyName = countyName;
-    }
-
-    public int getCombinedFips() {
+    public int getFips() {
         return combinedFips;
     }
 
-    public void setCombinedFips(int combinedFips) {
+    public void setFips(int combinedFips) {
         this.combinedFips = combinedFips;
     }
 
@@ -109,13 +61,13 @@ public class ElectionResult {
                 "demVotes=" + demVotes +
                 ", gopVotes=" + gopVotes +
                 ", totalVotes=" + totalVotes +
-                ", percentDem=" + percentDem +
-                ", percentGop=" + percentGop +
-                ", percentDifference=" + percentDifference +
-                ", percentPointDifference=" + percentPointDifference + "%" +
-                ", stateAbbreviation='" + stateAbbreviation + '\'' +
-                ", countyName='" + countyName + '\'' +
-                ", combinedFips=" + combinedFips +
+//                ", percentDem=" + percentDem +
+//                ", percentGop=" + percentGop +
+//                ", percentDifference=" + percentDifference +
+//                ", percentPointDifference=" + percentPointDifference + "%" +
+//                ", stateAbbreviation='" + stateAbbreviation + '\'' +
+//                ", countyName='" + countyName + '\'' +
+//                ", combinedFips=" + combinedFips +
                 '}';
     }
 }
