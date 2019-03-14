@@ -52,4 +52,11 @@ public class County {
     public void setEmploy2016(UnemploymentData employ2016) {
         this.employ2016 = employ2016;
     }
+
+    public void printCounty() {
+        System.out.println("Education Data: " + educ2016);
+        System.out.println("Election Data: " + vote2016);
+        System.out.println("Employment Data: " + employ2016);
+
+    }
 }

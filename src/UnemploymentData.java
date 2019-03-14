@@ -77,6 +77,10 @@ public class UnemploymentData implements Data{
         this.dataExists = dataExists;
     }
 
+    public boolean dataExists() {
+        return dataExists;
+    }
+
     @Override
     public int getFips() {
         if (!dataExists) {
@@ -102,6 +106,10 @@ public class UnemploymentData implements Data{
             return null;
         }
         return countyName;
+    }
+
+    public Object getDataType() {
+        return this;
     }
 
     @Override

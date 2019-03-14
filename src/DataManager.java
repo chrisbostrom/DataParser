@@ -16,15 +16,17 @@ public class DataManager {
         ArrayList<State> states = new ArrayList<>();
         ArrayList<Data[]> countiesInState = new ArrayList<>();
         String lastStateName = allCountyInfo.get(0)[0].getStateName();
-        String currentStateName = allCountyInfo.get(0)[0].getStateName();
+        String currentStateName;
 
         for(Data[] countyInfo: allCountyInfo){
+            currentStateName = countyInfo[0].getStateName();
             if(!lastStateName.equals(currentStateName)){
-                State state = new State(countiesInState, lastStateName);
+                State state = new State(countiesInState, countyInfo[2].getStateName());
                 states.add(state);
                 countiesInState.clear();
                 countiesInState.add(countyInfo);
                 lastStateName = currentStateName;
+                System.out.println("storing states");
             }
             else{
                 countiesInState.add(countyInfo);
@@ -41,13 +43,16 @@ public class DataManager {
             EducationData countyEducation = findEucationForCounty(fips, educ2016);
             UnemploymentData countyEmployment = findEmploymentForCounty(fips, employ2016);
 
-            Data[] countyInfo = new Data[3];
-            countyInfo[0] = countyElection;
-            countyInfo[1] = countyEducation;
-            countyInfo[2] = countyEmployment;
+            if(!(countyEducation == null) && !(countyEmployment == null) && countyEducation.dataExists() && countyEmployment.dataExists()) {
+                Data[] countyInfo = new Data[3];
+                countyInfo[0] = countyElection;
+                countyInfo[1] = countyEducation;
+                countyInfo[2] = countyEmployment;
 
-            allCountyInfo.add(countyInfo);
+                allCountyInfo.add(countyInfo);
+            }
         }
+        System.out.println(allCountyInfo.size());
         return allCountyInfo;
     }
 
@@ -55,6 +60,7 @@ public class DataManager {
         for(EducationData countyEduc: educ2016){
             if(countyEduc.getFips() == fips) return countyEduc;
         }
+        System.out.println(fips);
         return null;
     }
 
@@ -63,5 +69,13 @@ public class DataManager {
             if(countyEmploy.getFips() == fips) return countyEmploy;
         }
         return null;
+    }
+
+    public void printAll(){
+        System.out.println(states.size());
+        for(State state: states){
+            System.out.println(state.getName());
+            state.printState();
+        }
     }
 }

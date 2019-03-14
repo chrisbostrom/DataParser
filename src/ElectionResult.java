@@ -47,6 +47,10 @@ public class ElectionResult implements Data{
         return countyName;
     }
 
+    public Object getDataType() {
+        return this;
+    }
+
     public int getFips() {
         return combinedFips;
     }

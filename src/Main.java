@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         DataManager US = new DataManager("data/2016_Presidential_Results.csv", "data/Education.csv", "data/Unemployment.csv");
+        US.printAll();
 //        ArrayList<ElectionResult> results = Utils.parse2016PresidentialResults("data/2016_Presidential_Results.csv");
 //        for (ElectionResult result: results) {
 //            System.out.println(result);

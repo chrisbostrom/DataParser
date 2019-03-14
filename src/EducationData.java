@@ -4,13 +4,13 @@ public class EducationData implements Data{
     private double percentSomeCollegeDegree2012_2016;
     private double percentBachelorDegree2012_2016;
     private int fips;
-    private boolean dataExist;
+    private boolean dataExists;
     private String stateName;
     private String countyName;
 
     public EducationData(String[] data) {
         if (data.length < 46)
-            dataExist = false;
+            dataExists = false;
         else {
             percentNoHSDiploma2012_2016 = Double.parseDouble(data[43]);
             percentOnlyHSDiploma2012_2016 = Double.parseDouble(data[43]);
@@ -19,12 +19,12 @@ public class EducationData implements Data{
             fips = Integer.parseInt(data[0]);
             stateName = data[1];
             countyName = data[2];
-            dataExist = true;
+            dataExists = true;
         }
     }
 
     public double getPercentNoHSDiploma2012_2016() {
-        if (!dataExist) {
+        if (!dataExists) {
             System.out.println("no data");
             return -1;
         }
@@ -36,7 +36,7 @@ public class EducationData implements Data{
     }
 
     public double getPercentOnlyHSDiploma2012_2016() {
-        if (!dataExist) {
+        if (!dataExists) {
             System.out.println("no data");
             return -1;
         }
@@ -48,7 +48,7 @@ public class EducationData implements Data{
     }
 
     public double getPercentSomeCollegeDegree2012_2016() {
-        if (!dataExist) {
+        if (!dataExists) {
             System.out.println("no data");
             return -1;
         }
@@ -60,7 +60,7 @@ public class EducationData implements Data{
     }
 
     public double getPercentBachelorDegree2012_2016() {
-        if (!dataExist) {
+        if (!dataExists) {
             System.out.println("no data");
             return -1;
         }
@@ -72,7 +72,7 @@ public class EducationData implements Data{
     }
 
     public int getFips() {
-        if (!dataExist) {
+        if (!dataExists) {
             System.out.println("no data");
             return -1;
         }
@@ -80,7 +80,7 @@ public class EducationData implements Data{
     }
 
     public String getStateName() {
-        if (!dataExist) {
+        if (!dataExists) {
             System.out.println("no data");
             return null;
         }
@@ -88,16 +88,24 @@ public class EducationData implements Data{
     }
 
     public String getCountyName() {
-        if (!dataExist) {
+        if (!dataExists) {
             System.out.println("no data");
             return null;
         }
         return countyName;
     }
 
+    public boolean dataExists() {
+        return dataExists;
+    }
+
+    public Object getDataType() {
+        return this;
+    }
+
     @Override
     public String toString() {
-        if (!dataExist)
+        if (!dataExists)
             return "no data";
         return "EducationData{" +
                 "percentNoHSDiploma2012_2016=" + percentNoHSDiploma2012_2016 +

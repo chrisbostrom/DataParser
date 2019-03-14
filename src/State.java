@@ -20,4 +20,11 @@ public class State {
         }
         return counties;
     }
+
+    public void printState(){
+        for (County county: counties) {
+            System.out.println(county.getName());
+            county.printCounty();
+        }
+    }
 }
