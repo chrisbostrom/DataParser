@@ -75,6 +75,7 @@ public class Utils {
             uncleanedLine = uncleanedLine.trim();
             uncleanedLine = removeUnnecessaryCommas(uncleanedLine);
             uncleanedLine = uncleanedLine.replaceAll("%", "");
+            uncleanedLine = uncleanedLine.replaceAll("$", "");
             uncleanedLines[i] = uncleanedLine;
         }
         return uncleanedLines;
