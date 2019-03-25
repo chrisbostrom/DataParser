@@ -21,44 +21,21 @@ public class Utils {
         return output.toString();
     }
 
-    public static  ArrayList<UnemploymentData> parse2016UnemploymentData(String filepath){
-        ArrayList<UnemploymentData> results = new ArrayList<>();
+    public static void writeFileAsCSV(ArrayList<State> states, double[] chiSquared){
+        //TODO
+    }
+
+    public static ArrayList<State> parseData(String filepath){
+        ArrayList<State> states = new ArrayList<>();
         int startingLine = 8;
         String[] cleanedLines = getCleanedData(filepath);
 
         for (int i = startingLine; i < cleanedLines.length; i++) {
-            UnemploymentData result = new UnemploymentData(cleanedLines[i].split(","));
-            results.add(result);
+            State state = new State(cleanedLines[i].split(","));
+            states.add(state);
         }
 
-        return results;
-    }
-
-    public static ArrayList<ElectionResult> parse2016PresidentialResults(String filepath){
-        ArrayList<ElectionResult> results = new ArrayList<>();
-        int startingLine = 1;
-        String[] cleanedLines = getCleanedData(filepath);
-
-        for (int i = startingLine; i < cleanedLines.length; i++) {
-            ElectionResult result = new ElectionResult(cleanedLines[i].split(","));
-            results.add(result);
-        }
-
-        return results;
-    }
-
-    public static ArrayList<EducationData> parse2016EducationData(String filepath){
-        ArrayList<EducationData> results = new ArrayList<>();
-        int startingLine = 5;
-        String[] cleanedLines = getCleanedData(filepath);
-
-        for (int i = startingLine; i < cleanedLines.length; i++) {
-            EducationData result = new EducationData(cleanedLines[i].split(","));
-            results.add(result);
-        }
-
-        return results;
-
+        return states;
     }
 
     private static String[] getCleanedData(String filepath) {
@@ -74,8 +51,6 @@ public class Utils {
             String uncleanedLine = uncleanedLines[i];
             uncleanedLine = uncleanedLine.trim();
             uncleanedLine = removeUnnecessaryCommas(uncleanedLine);
-            uncleanedLine = uncleanedLine.replaceAll("%", "");
-            uncleanedLine = uncleanedLine.replaceAll("$", "");
             uncleanedLines[i] = uncleanedLine;
         }
         return uncleanedLines;
@@ -102,5 +77,4 @@ public class Utils {
 
         return cleanedLine;
     }
-
 }

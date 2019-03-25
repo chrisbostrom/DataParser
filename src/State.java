@@ -1,30 +1,42 @@
-import java.util.ArrayList;
-
 public class State {
     private String name;
-    private ArrayList<County> counties;
+    private int numUnemployed;
+    private int numEmployed;
+    private int numHSDiploma;
+    private double percentDelinquency;
+    private int householdIncome;
 
-    public State( ArrayList<Data[]> countyInfo, String name){
-         this.name = name;
-         counties = addAllCounties(countyInfo);
+    public State(String[] data){
+         name = data[0];
+         numUnemployed = Integer.parseInt(data[1]);
+         numEmployed = Integer.parseInt(data[2]);
+         numHSDiploma = Integer.parseInt(data[3]);
+         percentDelinquency = Double.parseDouble(data[4]);
+         householdIncome = Integer.parseInt(data[5]);
+        System.out.println("constructing state");
     }
 
     public String getName(){
-        return this.name;
+        return name;
     }
 
-    private ArrayList<County> addAllCounties(ArrayList<Data[]> data) {
-        ArrayList<County> counties = new ArrayList<>();
-        for(Data[] countyData: data){
-            counties.add(new County(countyData));
-        }
-        return counties;
+    public int getNumUnemployed() {
+        return numUnemployed;
     }
 
-    public void printState(){
-        for (County county: counties) {
-            System.out.println(county.getName());
-            county.printCounty();
-        }
+    public int getNumEmployed() {
+        return numEmployed;
+    }
+
+    public int getNumHSDiploma() {
+        return numHSDiploma;
+    }
+
+    public double getPercentDelinquency() {
+        return percentDelinquency;
+    }
+
+    public int getHouseholdIncome() {
+        return householdIncome;
     }
 }
