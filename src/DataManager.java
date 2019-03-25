@@ -31,7 +31,12 @@ public class DataManager {
         return chiSquared;
     }
 
-    public void writeFileAsCSV(){
-        Utils.writeFileAsCSV(states, getChiSquared(states));
+    public String getDataAsString(ArrayList<State> states, double[] chiSquared){//TODO
+        String data = "";
+        return data;
+    }
+
+    public void writeFileAsCSV(String data){
+        Utils.writeDataToFile("data/deliverable.csv", data);
     }
 }

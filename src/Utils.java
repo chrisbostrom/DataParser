@@ -1,4 +1,6 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -21,8 +23,14 @@ public class Utils {
         return output.toString();
     }
 
-    public static void writeFileAsCSV(ArrayList<State> states, double[] chiSquared){
-        //TODO
+    public static void writeDataToFile(String filePath, String data) {
+        File outFile = new File(filePath);
+
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(outFile))){
+            writer.write(data);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static ArrayList<State> parseData(String filepath){
