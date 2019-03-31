@@ -35,7 +35,7 @@ public class Utils {
 
     public static ArrayList<State> parseData(String filepath){
         ArrayList<State> states = new ArrayList<>();
-        int startingLine = 8;
+        int startingLine = 1;
         String[] cleanedLines = getCleanedData(filepath);
 
         for (int i = startingLine; i < cleanedLines.length; i++) {
